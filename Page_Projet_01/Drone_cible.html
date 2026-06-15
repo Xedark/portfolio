@@ -1,0 +1,434 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projet Drone Cible — Nolan Ribette</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="Drone_cible.css" />
+</head>
+<body>
+
+<nav>
+  <a href="../Page_Pr%C3%A9sentation/Acceuil.html" class="nav-logo">Nolan <span>Ribette</span></a>
+  <a href="../Page_Pr%C3%A9sentation/Acceuil.html#projets" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Retour aux projets
+  </a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-glow1"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="../Page_Pr%C3%A9sentation/Acceuil.html">Portfolio</a><span>›</span>
+      <a href="../Page_Pr%C3%A9sentation/Acceuil.html#projets">Projets</a><span>›</span>
+      <span style="color:var(--text)">Drone Cible</span>
+    </div>
+    <div class="hero-badge"><div class="badge-dot"></div>BTS CIEL IR — 2025/2026</div>
+    <h1>Drone Cible<br><em>Marine Nationale</em></h1>
+    <p class="hero-desc">Prototype de drone naval de surface autonome destiné à simuler des menaces lors d'exercices d'entraînement. Développé en partenariat avec le lycée Vauban de Brest et l'IRENAV, dans le cadre d'un projet réel commandé par la Marine nationale.</p>
+    <div class="hero-meta">
+      <div class="meta-item"><span class="meta-label">Formation</span><span class="meta-value">BTS CIEL IR</span></div>
+      <div class="meta-item"><span class="meta-label">Partenaires</span><span class="meta-value">Marine Nationale · IRENAV</span></div>
+      <div class="meta-item"><span class="meta-label">Équipe</span><span class="meta-value">3 étudiants</span></div>
+      <div class="meta-item"><span class="meta-label">Mon rôle</span><span class="meta-value">Vision · Navigation · Safemode</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PAGE ── -->
+<div class="page-wrap">
+<main>
+
+  <!-- 01 CONTEXTE -->
+  <div class="section" id="contexte">
+    <div class="section-label">01 — Contexte</div>
+    <h2>Un besoin opérationnel réel</h2>
+    <p>Ce projet s'inscrit dans le cadre du BTS CIEL option IR au lycée Vauban de Brest, en partenariat avec la <strong>Marine nationale</strong> et l'<strong>IRENAV</strong> (Institut de Recherche de l'École Navale).</p>
+    <p>La Marine souhaite disposer de drones cibles réalistes pour simuler les menaces modernes auxquelles ses équipages sont confrontés — notamment les attaques de petits navires rapides (skiffs) ou d'USV, de plus en plus utilisées, en mer Rouge notamment. Ces menaces sont peu coûteuses, rapides et difficiles à détecter.</p>
+    <p>L'objectif est de concevoir un prototype fonctionnel <strong>low-cost à base de composants du commerce (DIY)</strong>, suffisamment fiable pour des essais réels, tout en restant économique car conçu pour être potentiellement détruit lors des exercices. Le projet sert également de <strong>preuve de concept</strong> pour évaluer la faisabilité de solutions low-cost en contexte militaire.</p>
+  </div>
+
+  <!-- 02 MODES -->
+  <div class="section" id="modes">
+    <div class="section-label">02 — Fonctionnement</div>
+    <h2>Trois modes de pilotage</h2>
+    <p>Le drone doit pouvoir basculer entre trois modes distincts selon la situation opérationnelle.</p>
+    <div class="modes-grid">
+      <div class="card card-accent-blue">
+        <div class="card-accent-top"></div>
+        <div class="mode-icon">🕹️</div>
+        <div class="mode-title blue">Mode Manuel</div>
+        <div class="mode-desc">Pilotage à distance par un opérateur via liaison radio LoRa. Le drone reçoit les commandes depuis la télécommande. Activé quand <code style="font-family:var(--mono);font-size:.78rem;color:var(--neon)">/robot_mode = 0</code>.</div>
+      </div>
+      <div class="card card-accent-purple">
+        <div class="card-accent-top"></div>
+        <div class="mode-icon">🗺️</div>
+        <div class="mode-title purple">Mode Autonome GPS</div>
+        <div class="mode-desc">Navigation sur un itinéraire prédéfini à partir de points de passage GPS (waypoints stockés en JSON). Activé quand <code style="font-family:var(--mono);font-size:.78rem;color:var(--neon)">/robot_mode = 1</code>.</div>
+      </div>
+      <div class="card card-accent-red">
+        <div class="card-accent-top"></div>
+        <div class="mode-icon">🎯</div>
+        <div class="mode-title red">Mode Verrouillage</div>
+        <div class="mode-desc">Détection d'une cible par caméra (YOLOv5) et suivi automatique. Activé quand <code style="font-family:var(--mono);font-size:.78rem;color:var(--neon)">/robot_mode = 2</code>.</div>
+      </div>
+    </div>
+    <p>Un quatrième mode transversal — le <strong>Safemode (mode 3)</strong> — stoppe immédiatement tous les moteurs en cas de perte de communication ou de défaillance système.</p>
+  </div>
+
+  <!-- 03 MON RÔLE -->
+  <div class="section" id="role">
+    <div class="section-label">03 — Mon rôle</div>
+    <h2>Périmètre d'activité</h2>
+    <p>Au sein de l'équipe de trois, je me suis concentré sur deux fonctions critiques : le <strong>mode verrouillage</strong> avec détection par caméra, et le <strong>Safemode</strong> regroupant le watchdog radio et le watchdog système.</p>
+    <div class="activities">
+      <div class="activity">
+        <span class="activity-num">01</span>
+        <div>
+          <div class="activity-title">Nœud navigation_verrou</div>
+          <div class="activity-desc">Maintien de position automatique via détection caméra. Publication des commandes de correction sur <code style="font-family:var(--mono);color:var(--neon);font-size:.78rem">/cmd_vel</code> pour stabiliser et diriger le drone vers la cible.</div>
+        </div>
+      </div>
+      <div class="activity">
+        <span class="activity-num">02</span>
+        <div>
+          <div class="activity-title">Nœud boat_detector</div>
+          <div class="activity-desc">Récupération du flux vidéo, pipeline de détection YOLOv5 (traitement d'image + inférence), publication des résultats sur <code style="font-family:var(--mono);color:var(--neon);font-size:.78rem">/boat_detection_json</code>.</div>
+        </div>
+      </div>
+      <div class="activity">
+        <span class="activity-num">03</span>
+        <div>
+          <div class="activity-title">Nœud radio_watchdog</div>
+          <div class="activity-desc">Surveillance continue du lien LoRa. Déclenchement automatique du mode arrêt d'urgence (mode 3) en cas de perte de communication dépassant le seuil configuré.</div>
+        </div>
+      </div>
+      <div class="activity">
+        <span class="activity-num">04</span>
+        <div>
+          <div class="activity-title">Nœud system_watchdog</div>
+          <div class="activity-desc">Supervision de l'état des nœuds ROS2. En cas de défaillance : tentative de redémarrage du conteneur Docker, puis notification opérateur via <code style="font-family:var(--mono);color:var(--neon);font-size:.78rem">/error_node = 66</code>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 ARCHITECTURE -->
+  <div class="section" id="architecture">
+    <div class="section-label">04 — Architecture</div>
+    <h2>Flux de données ROS2</h2>
+    <p>L'architecture repose sur une organisation modulaire en nœuds ROS2 indépendants communiquant via des topics DDS. Le Raspberry Pi 5 exécute l'ensemble dans des conteneurs Docker.</p>
+    <div class="flow">
+      <div class="flow-title">RASPBERRY PI 5 — ROS2 JAZZY + DOCKER</div>
+      <div class="flow-steps">
+        <div class="flow-row">
+          <div class="flow-node blue">📷 usb_cam_node<small>/image_raw</small></div>
+          <div class="flow-connector"><span>→</span><small>/image_raw</small></div>
+          <div class="flow-node blue">🔍 boat_detector<small>YOLOv5</small></div>
+          <div class="flow-connector"><span>→</span><small>/boat_detection_json</small></div>
+          <div class="flow-node blue">🧭 navigation_verrou<small>mode=2</small></div>
+        </div>
+        <div class="flow-row" style="justify-content:flex-end; padding-right:0">
+          <div style="width:33%; display:flex; flex-direction:column; align-items:center; gap:.1rem">
+            <span style="color:var(--border)">↓</span>
+            <span style="font-family:var(--mono);font-size:.6rem;color:var(--neon)">/cmd_vel</span>
+          </div>
+        </div>
+        <div class="flow-row">
+          <div class="flow-node green">⚙️ robot_controller<small>Moteurs DC + Servo</small></div>
+          <div class="flow-arrow" style="flex:none;padding:0 .4rem">←</div>
+          <div class="flow-node blue">📡 bridge_robot_node<small>LoRa</small></div>
+          <div class="flow-arrow" style="flex:none;padding:0 .4rem">←</div>
+          <div class="flow-node purple">🖥️ Poste opérateur<small>Ubuntu 22.04</small></div>
+        </div>
+        <div class="watchdog-box">
+          <div class="watchdog-node">🛡️ radio_watchdog<small>perte signal → mode=3</small></div>
+          <div class="watchdog-node">🔁 system_watchdog<small>node KO → restart Docker → /error_node=66</small></div>
+        </div>
+      </div>
+    </div>
+    <p>Le flux vidéo est également retransmis <strong>en direct</strong> vers le poste opérateur via deux antennes Wi-Fi à gain, permettant la supervision de la détection YOLOv5 en temps réel, même lorsque le drone s'éloigne.</p>
+  </div>
+
+  <!-- 05 CODE -->
+  <div class="section" id="code">
+    <div class="section-label">05 — Code</div>
+    <h2>Extraits commentés</h2>
+    <p>Deux extraits représentatifs du travail développé, tirés des annexes du rapport.</p>
+    <p><strong>Extrait 1 — Watchdog radio</strong> : surveillance du lien LoRa avec mécanisme heartbeat. Si aucun message n'est reçu en 3 secondes, le mode sécurité est déclenché.</p>
+    <div class="code-block">
+      <div class="code-header">
+        <span class="code-title">radio_watchdog.py — check_watchdog()</span>
+        <span class="code-lang">Python</span>
+      </div>
+      <pre><span class="kw">def</span> <span class="fn">check_watchdog</span>(self):
+    <span class="st">"""
+    Vérifie périodiquement l'état de santé de la communication.
+    Si aucun message n'est reçu pendant plus de 3 secondes,
+    une procédure de mise en sécurité est déclenchée.
+    """</span>
+    <span class="cm"># Calcul du temps écoulé depuis la dernière réception</span>
+    delta = (datetime.now() - self.last_msg_time).total_seconds()
+
+    <span class="kw">if</span> delta > <span class="nu">3.0</span>:
+        self.get_logger().warn(
+            <span class="st">f"Alerte : Perte de signal ({delta:.2f}s)"</span>
+        )
+        <span class="cm"># Création du message d'arrêt d'urgence</span>
+        msg = <span class="cl">String</span>()
+        msg.data = <span class="st">"3"</span>  <span class="cm"># mode 3 = arrêt complet des moteurs</span>
+
+        <span class="cm"># Publication vers le contrôleur moteur</span>
+        self.mode_publisher.publish(msg)
+
+        <span class="cm"># Réinitialisation pour éviter une boucle d'alertes infinies</span>
+        self.last_msg_time = datetime.now()</pre>
+    </div>
+    <p><strong>Extrait 2 — Navigation en mode verrouillage</strong> : correcteur proportionnel (P) à 20 Hz qui centre le drone sur la cible détectée par YOLOv5.</p>
+    <div class="code-block">
+      <div class="code-header">
+        <span class="code-title">navigation_verrou.py — control_loop()</span>
+        <span class="code-lang">Python</span>
+      </div>
+      <pre><span class="kw">def</span> <span class="fn">control_loop</span>(self):
+    <span class="st">"""Boucle de contrôle (20 Hz) : centre le drone sur le bateau détecté."""</span>
+    twist = <span class="cl">Twist</span>()
+
+    <span class="cm"># Sécurité : si le mode verrou (2) n'est pas actif → stop</span>
+    <span class="kw">if not</span> self.locked <span class="kw">or not</span> self.last_detection:
+        self.cmd_pub.publish(twist)
+        <span class="kw">return</span>
+
+    <span class="cm"># Coordonnées du bateau détecté par YOLOv5</span>
+    boat = self.last_detection[<span class="st">"boats"</span>][<span class="nu">0</span>]
+    center_x = float(boat.get(<span class="st">"x_min"</span>, <span class="nu">0.0</span>)) + (float(boat.get(<span class="st">"width"</span>, <span class="nu">0.0</span>)) / <span class="nu">2.0</span>)
+
+    <span class="cm"># Erreur = écart entre le centre du bateau et le centre image (320 px)</span>
+    error     = center_x - self.image_center_x
+    Kp        = <span class="nu">0.002</span>   <span class="cm"># Gain proportionnel</span>
+    dead_zone = <span class="nu">20.0</span>    <span class="cm"># Tolérance pixels — limite les oscillations</span>
+
+    twist.linear.x = <span class="nu">0.6</span>  <span class="cm"># Avance constante vers la cible</span>
+    <span class="kw">if</span> abs(error) > dead_zone:
+        twist.angular.z = float(-Kp * error)  <span class="cm"># Correction angulaire P</span>
+
+    self.cmd_pub.publish(twist)</pre>
+    </div>
+  </div>
+
+  <!-- 06 TESTS -->
+  <div class="section" id="tests">
+    <div class="section-label">06 — Tests unitaires</div>
+    <h2>Cahier de tests — 5/5 validés</h2>
+    <p>Cinq tests unitaires ont été réalisés pour valider le bon fonctionnement des composants critiques. L'ensemble des tests s'est conclu avec succès.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Composant</th><th>Objectif</th><th>Résultat attendu</th><th>Statut</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tid">TU-01</span></td>
+            <td><strong>radio_watchdog</strong></td>
+            <td>Passage en mode sécurité (mode 3) après 3 s sans signal radio. Simulation avec PublisherWatchdog — crash à la valeur 1050.</td>
+            <td><code style="font-family:var(--mono);font-size:.75rem;color:var(--neon)">/robot_mode = "3"</code>, moteurs stoppés.</td>
+            <td><span class="status-ok"><span class="sdot" style="background:var(--green)"></span>OK</span></td>
+          </tr>
+          <tr>
+            <td><span class="tid">TU-02</span></td>
+            <td><strong>system_watchdog</strong></td>
+            <td>Redémarrage automatique du conteneur Docker si un nœud ROS2 tombe (boat_detector tué manuellement).</td>
+            <td>Conteneur relancé, nœud reprend en &lt; 10 s.</td>
+            <td><span class="status-ok"><span class="sdot" style="background:var(--green)"></span>OK</span></td>
+          </tr>
+          <tr>
+            <td><span class="tid">TU-03</span></td>
+            <td><strong>boat_detector</strong></td>
+            <td>Détection d'une cible bateau — vérification de la publication JSON correcte sur <code style="font-family:var(--mono);font-size:.75rem;color:var(--neon)">/boat_detection_json</code>.</td>
+            <td>JSON contient x_min, width, height.</td>
+            <td><span class="status-ok"><span class="sdot" style="background:var(--green)"></span>OK</span></td>
+          </tr>
+          <tr>
+            <td><span class="tid">TU-04</span></td>
+            <td><strong>navigation_verrou</strong></td>
+            <td>Mouvement du drone en mode verrouillage actif (robot_mode = 2) lors d'une détection.</td>
+            <td>Variation de /cmd_vel, drone en mouvement vers la cible.</td>
+            <td><span class="status-ok"><span class="sdot" style="background:var(--green)"></span>OK</span></td>
+          </tr>
+          <tr>
+            <td><span class="tid">TU-05</span></td>
+            <td><strong>navigation_verrou</strong></td>
+            <td>Immobilité du drone si robot_mode ≠ 2 malgré une détection active.</td>
+            <td>Aucun mouvement même si une cible est détectée.</td>
+            <td><span class="status-ok"><span class="sdot" style="background:var(--green)"></span>OK</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 07 RÉSEAU -->
+  <div class="section" id="reseau">
+    <div class="section-label">07 — Analyse réseau</div>
+    <h2>Mesures Wireshark — Flux vidéo ROS2</h2>
+    <p>Quatre tests de capture Wireshark ont mesuré le débit réel du flux vidéo transmis via ROS2 / CycloneDDS (protocole UDP/DDS) entre le Raspberry Pi et le poste opérateur, en faisant varier résolution et framerate.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Test</th><th>Résolution</th><th>FPS</th><th>Débit moy.</th><th>Paquets/s</th><th>Volume / 3 min</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="tid">#1</span></td><td>640×480</td><td>30</td><td><span class="net-warn">162 Mbit/s</span></td><td>2 465</td><td>3,64 Go</td></tr>
+          <tr><td><span class="tid">#2</span></td><td>640×480</td><td>15</td><td><span class="net-warn">81 Mbit/s</span></td><td>1 293</td><td>1,82 Go</td></tr>
+          <tr><td><span class="tid">#3</span></td><td>320×240</td><td>30</td><td><span class="net-good">37 Mbit/s</span></td><td>361</td><td>0,83 Go</td></tr>
+          <tr><td><span class="tid">#4</span></td><td>320×240</td><td>15</td><td><span class="net-good">19 Mbit/s</span></td><td>183</td><td>0,43 Go</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Le flux vidéo représente entre <strong>99,4 % et 99,9 %</strong> du trafic total. Passer à 320×240 divise le débit par 4,4 ; réduire à 15 FPS le divise par 2. Le test #2 (640×480 / 15 FPS → 81 Mbit/s) est compatible avec la liaison Wi-Fi longue portée.</p>
+    <div class="table-wrap" style="margin-top:.8rem">
+      <table class="osi-table">
+      </table>
+    </div>
+  </div>
+
+  <!-- 08 MATÉRIEL -->
+  <div class="section" id="materiel">
+    <div class="section-label">08 — Matériel</div>
+    <h2>Équipements embarqués</h2>
+    <div class="hw-grid">
+      <div class="card"><div class="card-accent-top"></div><div class="hw-icon">🧠</div><div class="hw-name">Raspberry Pi 5</div><div class="hw-role">Cœur du système. Exécute ROS2 dans Docker, YOLOv5 en temps réel et la logique de navigation avec latence minimale.</div></div>
+      <div class="card"><div class="card-accent-top"></div><div class="hw-icon">📷</div><div class="hw-name">Webcam USB</div><div class="hw-role">Capture le flux vidéo de l'environnement marin. Frames analysées par YOLOv5 pour détecter les cibles.</div></div>
+      <div class="card"><div class="card-accent-top"></div><div class="hw-icon">📡</div><div class="hw-name">Antennes Wi-Fi x2</div><div class="hw-role">Retour vidéo longue portée vers le poste opérateur. Maintient la liaison watchdog même loin des côtes.</div></div>
+      <div class="card"><div class="card-accent-top"></div><div class="hw-icon">⚡</div><div class="hw-name">PCA9685</div><div class="hw-role">Contrôleur PWM 12 bits via I2C. Pilote le servomoteur de gouvernail et les moteurs avec précision.</div></div>
+      <div class="card"><div class="card-accent-top"></div><div class="hw-icon">🔋</div><div class="hw-name">L298N</div><div class="hw-role">Pont en H — interface de puissance batterie/moteurs DC. Protège la Raspberry Pi des pics de tension (Back-EMF).</div></div>
+      <div class="card"><div class="card-accent-top"></div><div class="hw-icon">⚙️</div><div class="hw-name">2 Moteurs DC + 1 Servomoteur</div><div class="hw-role">Moteurs DC = propulsion (linear.x). Servomoteur = gouvernail (angular.z) pour une direction précise à haute vitesse.</div></div>
+    </div>
+  </div>
+
+  <!-- 09 CYBERSÉCURITÉ -->
+  <div class="section" id="secu">
+    <div class="section-label">09 — Cybersécurité</div>
+    <h2>Mesures de sécurité</h2>
+    <div class="tech-list">
+      <div class="tech-item">
+        <div class="tech-icon">🐳</div>
+        <div class="tech-info">
+          <div class="tech-name">Docker — Isolation des conteneurs</div>
+          <div class="tech-desc">Les nœuds ROS2 s'exécutent dans des conteneurs isolés, réduisant la surface d'attaque et les risques liés à une mauvaise configuration.</div>
+        </div>
+        <div class="tech-badge">Isolation</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">🔑</div>
+        <div class="tech-info">
+          <div class="tech-name">SSH par clé cryptographique</div>
+          <div class="tech-desc">Connexion au Raspberry Pi via clé publique/privée (authorized_keys). Élimine les risques liés aux mots de passe et aux attaques par force brute.</div>
+        </div>
+        <div class="tech-badge">Auth</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">🛡️</div>
+        <div class="tech-info">
+          <div class="tech-name">Watchdog radio + système</div>
+          <div class="tech-desc">Surveillance continue du lien radio et des nœuds ROS2. Arrêt automatique des moteurs en cas de perte de communication ou de défaillance logicielle.</div>
+        </div>
+        <div class="tech-badge">Sûreté</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 BILAN -->
+  <div class="section" id="bilan">
+    <div class="section-label">10 — Bilan personnel</div>
+    <h2>Ce que j'ai appris</h2>
+    <p>Ce projet m'a permis de travailler sur des fonctions critiques d'un système réel, en conditions proches de l'ingénierie industrielle et de la recherche appliquée. Plusieurs domaines du BTS CIEL ont été mobilisés simultanément.</p>
+    <div class="bilan-grid">
+      <div class="bilan-card"><div class="bilan-icon">🤖</div><div class="bilan-title">Architecture ROS2</div><div class="bilan-desc">Maîtrise des nœuds, topics, publishers/subscribers et de la communication distribuée temps réel avec CycloneDDS.</div></div>
+      <div class="bilan-card"><div class="bilan-icon">🔍</div><div class="bilan-title">Vision embarquée — YOLOv5</div><div class="bilan-desc">Intégration d'un modèle de deep learning sur Raspberry Pi 5. Gestion des contraintes matérielles et d'optimisation temps réel.</div></div>
+      <div class="bilan-card"><div class="bilan-icon">🛡️</div><div class="bilan-title">Sûreté de fonctionnement</div><div class="bilan-desc">Conception de watchdogs, gestion des pannes, redémarrage automatique Docker, mise en sécurité automatique du robot.</div></div>
+      <div class="bilan-card"><div class="bilan-icon">🌐</div><div class="bilan-title">Réseaux & Cybersécurité</div><div class="bilan-desc">Analyse Wireshark, modèle OSI appliqué, sécurisation SSH, isolation Docker. Compréhension des protocoles UDP/DDS.</div></div>
+      <div class="bilan-card"><div class="bilan-icon">🔧</div><div class="bilan-title">Systèmes embarqués</div><div class="bilan-desc">Contrôle moteur PWM (PCA9685 + L298N), GPIO, I2C, intégration matériel/logiciel sur Raspberry Pi 5.</div></div>
+      <div class="bilan-card"><div class="bilan-icon">👥</div><div class="bilan-title">Travail en équipe</div><div class="bilan-desc">Gestion de versions GitHub, adaptation à l'avancement des coéquipiers, documentation, tests de validation.</div></div>
+    </div>
+    <p style="margin-top:1rem">Des pistes d'amélioration restent envisageables : optimisation de la précision du suivi, amélioration du modèle YOLOv5, et finalisation des tests réseau en conditions réelles.</p>
+  </div>
+
+  <!-- 11 ÉQUIPE -->
+  <div class="section" id="equipe">
+    <div class="section-label">11 — Équipe</div>
+    <h2>Groupe projet</h2>
+    <div class="team-list">
+      <div class="team-item">
+        <div class="team-av">NR</div>
+        <div><div class="team-name">Nolan Ribette</div><div class="team-role">Vision · Détection · Navigation verrouillage · Watchdog radio & système</div></div>
+        <span class="team-me">Moi</span>
+      </div>
+      <div class="team-item">
+        <div class="team-av">TBG</div>
+        <div><div class="team-name">Timéo Bernard Goarant</div><div class="team-role">Bridge opérateur · Liaison LoRa · Télécommande</div></div>
+      </div>
+      <div class="team-item">
+        <div class="team-av">GJ</div>
+        <div><div class="team-name">Gatien Jaumouille</div><div class="team-role">Matériel · Navigation GPS · Localisation</div></div>
+      </div>
+    </div>
+    <p style="margin-top:1.2rem">Encadrés par <strong>Sébastien Guivarch</strong>, <strong>Denis Caille</strong> et <strong>Francesa Brehonnet</strong> — Lycée Vauban, Brest.</p>
+  </div>
+
+</main>
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-title">Navigation</div>
+    <ul class="nav-anchors">
+      <li><a href="#contexte">Contexte</a></li>
+      <li><a href="#modes">Modes de pilotage</a></li>
+      <li><a href="#role">Mon rôle</a></li>
+      <li><a href="#architecture">Architecture ROS2</a></li>
+      <li><a href="#code">Extraits de code</a></li>
+      <li><a href="#tests">Tests unitaires</a></li>
+      <li><a href="#reseau">Analyse réseau</a></li>
+      <li><a href="#commits">Versioning GitHub</a></li>
+      <li><a href="#materiel">Matériel</a></li>
+      <li><a href="#secu">Cybersécurité</a></li>
+      <li><a href="#bilan">Bilan personnel</a></li>
+      <li><a href="#equipe">Équipe</a></li>
+    </ul>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-title">Stack technique</div>
+    <div class="tag-cloud">
+      <span class="tag">Python 3</span>
+      <span class="tag">ROS2 Jazzy</span>
+      <span class="tag">YOLOv5</span>
+      <span class="tag">OpenCV</span>
+      <span class="tag">PyTorch</span>
+      <span class="tag">Docker</span>
+      <span class="tag">rclpy</span>
+      <span class="tag">CycloneDDS</span>
+      <span class="tag">Raspberry Pi 5</span>
+      <span class="tag">I2C / PWM</span>
+      <span class="tag">LoRa</span>
+      <span class="tag">SSH / clés</span>
+      <span class="tag">Wireshark</span>
+      <span class="tag">GitHub</span>
+    </div>
+  </div>
+</aside>
+</div>
+
+<footer>
+  <span>© 2025 <a href="../Page_Pr%C3%A9sentation/Acceuil.html">Nolan Ribette</a> — Projet Drone Cible · Marine Nationale</span>
+  <a href="../Page_Pr%C3%A9sentation/Acceuil.html#projets">← Retour aux projets</a>
+</footer>
+
+<script src="Drone_cible.js"></script>
+</body>
+</html>

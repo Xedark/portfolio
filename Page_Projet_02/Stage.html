@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stage Voirie — Brest Métropole — Nolan Ribette</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="Stage.css" />
+</head>
+<body>
+
+<nav>
+  <a href="../Page_Présentation/Acceuil.html" class="nav-logo">Nolan <span>Ribette</span></a>
+  <a href="../Page_Présentation/Acceuil.html#projets" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Retour à l'accueil
+  </a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-glow1"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="../Page_Présentation/Acceuil.html">Portfolio</a><span>›</span>
+      <a href="../Page_Présentation/Acceuil.html#projets">Projets</a><span>›</span>
+      <span style="color:var(--text)">Projet Voirie — Brest Métropole</span>
+    </div>
+    <div class="hero-badge"><div class="badge-dot"></div>Projet BTS CIEL IR — 1re année</div>
+    <h1>Projet<br><em>Voirie — Brest Métropole</em></h1>
+    <p class="hero-desc">6 semaines au sein du Service Voirie – Division Opérationnelle de Brest Métropole. Mise à jour d'une base de données cartographique et développement de trois outils numériques pour faciliter la gestion des arrêtés de voirie.</p>
+    <div class="hero-meta">
+      <div class="meta-item"><span class="meta-label">Période</span><span class="meta-value">19 mai → 27 juin 2025</span></div>
+      <div class="meta-item"><span class="meta-label">Lieu</span><span class="meta-value">Brest Métropole — Service Voirie</span></div>
+      <div class="meta-item"><span class="meta-label">Formation</span><span class="meta-value">BTS CIEL IR — 1re année</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PAGE ── -->
+<div class="page-wrap">
+<main>
+
+  <!-- 01 ENTREPRISE -->
+  <div class="section" id="entreprise">
+    <div class="section-label">01 — Structure d'accueil</div>
+    <h2>Brest Métropole en bref</h2>
+    <div class="entreprise-card">
+      <div class="entreprise-logo">🏛️</div>
+      <div class="entreprise-info">
+        <div class="entreprise-name">Brest Métropole — Service Voirie</div>
+        <div class="entreprise-desc">Collectivité territoriale regroupant 8 communes bretonnes depuis 2015. Le Service Voirie – Division Opérationnelle gère l'entretien du réseau routier, les arrêtés de circulation et l'occupation du domaine public sur tout le territoire métropolitain.</div>
+      </div>
+    </div>
+    <p>Le service est chargé de gérer les <strong>arrêtés de voirie</strong> — décisions administratives réglementant la circulation, le stationnement et l'usage de l'espace public. Chaque arrêté doit être correctement enregistré, géolocalisé dans des outils SIG (<strong>ArcGIS Pro</strong> et <strong>SIGEO</strong>) et diffusé aux services concernés.</p>
+    <div class="missions-grid">
+      <div class="mission-card">
+        <div class="mission-icon">🗺️</div>
+        <div class="mission-title">ArcGIS Pro</div>
+        <div class="mission-desc">SIG professionnel d'Esri. Permet de créer, modifier et géolocaliser les arrêtés sur des couches cartographiques (points, lignes, surfaces).</div>
+      </div>
+      <div class="mission-card">
+        <div class="mission-icon">🌐</div>
+        <div class="mission-title">SIGEO</div>
+        <div class="mission-desc">Plateforme interne web de Brest Métropole. Centralise et partage les données géographiques entre tous les services, accessible via navigateur.</div>
+      </div>
+      <div class="mission-card">
+        <div class="mission-icon">📄</div>
+        <div class="mission-title">Arrêtés de voirie</div>
+        <div class="mission-desc">Décisions légales du Maire réglementant l'espace public : stationnement, travaux, zones 30, arceaux vélo, places PMR, etc.</div>
+      </div>
+      <div class="mission-card">
+        <div class="mission-icon">🔄</div>
+        <div class="mission-title">Workflow projet → vigueur</div>
+        <div class="mission-desc">Les arrêtés passent d'un état "projet" (en cours de validation) à "vigueur" (définitif et visible sur SIGEO) après vérification.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 PROJETS -->
+  <div class="section" id="projets">
+    <div class="section-label">02 — Projets réalisés</div>
+    <h2>Trois outils développés</h2>
+    <p>En parallèle de la mission principale de mise à jour cartographique, j'ai développé trois outils pour moderniser et faciliter la gestion des arrêtés, dans la continuité du travail d'un précédent stagiaire.</p>
+
+    <div class="tabs-wrapper">
+      <div class="projet-tabs">
+        <button class="tab-btn active" data-tab="tab-site">🌐 Site web</button>
+        <button class="tab-btn" data-tab="tab-script">🐍 Script Python</button>
+        <button class="tab-btn" data-tab="tab-bdd">🗄️ Base de données</button>
+      </div>
+
+      <!-- TAB 1 : SITE WEB -->
+      <div class="tab-content active" id="tab-site">
+        <div class="project-detail">
+          <div class="project-detail-header">
+            <div class="project-detail-icon">🌐</div>
+            <div class="project-detail-title">Site internet de recherche des arrêtés</div>
+            <div class="project-detail-badge">HTML · CSS · JS</div>
+          </div>
+          <div class="project-detail-body">
+            <p>Création d'un site web permettant de <strong>rechercher, consulter et gérer les arrêtés de voirie</strong> directement depuis un navigateur. L'objectif était de rendre la consultation plus rapide et intuitive pour les agents de Brest Métropole.</p>
+            <p>Le site est connecté à une base de données SQLite et affiche les données en temps réel. Il intègre un système de <strong>rôles utilisateurs</strong> (Admin, Modérateur, Utilisateur) avec des permissions différentes sur les données.</p>
+            <div class="feature-list">
+              <div class="feature-item"><div class="feature-dot"></div><span>Recherche d'arrêtés par numéro NOARR (ex. : 019-2024-12-54)</span></div>
+              <div class="feature-item"><div class="feature-dot"></div><span>Affichage tabulaire avec OBJECTID, NOARR, ÉTAT, NMFIC, IDRUE, TITRE, DT_SIGN</span></div>
+              <div class="feature-item"><div class="feature-dot"></div><span>Gestion des utilisateurs et de leurs rôles (Admin / Modérateur / User)</span></div>
+              <div class="feature-item"><div class="feature-dot"></div><span>Interface simple et accessible sans installation, via navigateur</span></div>
+            </div>
+            <p style="margin-top:1rem;font-size:.82rem;color:var(--neon3);">⚠️ Ce site est connecté à une base de données test et non à la vraie base Brest Métropole, pour des raisons de confidentialité.</p>
+          </div>
+        </div>
+
+        <!-- Photos réelles du site -->
+        <div class="screen-mockup">
+          <div class="screen-bar">
+            <div class="screen-dot" style="background:#e07b6b"></div>
+            <div class="screen-dot" style="background:#e0c97e"></div>
+            <div class="screen-dot" style="background:#6bcf8f"></div>
+            <span class="screen-bar-title">Gestion des arrêtés permanents — Brest Métropole</span>
+          </div>
+          <div class="screen-content">
+            <p class="site-photo-intro">Captures réelles de l’interface de consultation et de gestion des arrêtés réalisés dans le cadre du projet.</p>
+            <div class="site-photo-grid">
+              <figure class="site-photo-card">
+                <img src="bdd_arrete.png" alt="Capture de la gestion des arrêtés de voirie" />
+                <figcaption>Interface de consultation des arrêtés</figcaption>
+              </figure>
+              <figure class="site-photo-card">
+                <img src="bb_users.png" alt="Capture de la gestion des utilisateurs et rôles" />
+                <figcaption>Gestion des utilisateurs et des rôles</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2 : SCRIPT PYTHON -->
+      <div class="tab-content" id="tab-script">
+        <div class="project-detail">
+          <div class="project-detail-header">
+            <div class="project-detail-icon">🐍</div>
+            <div class="project-detail-title">Script Python — Menu interactif</div>
+            <div class="project-detail-badge">Python · SQLite · openpyxl</div>
+          </div>
+          <div class="project-detail-body">
+            <p>Développement d'un script Python avec <strong>menu interactif en ligne de commande</strong> permettant de gérer directement les arrêtés de voirie. Ce script s'inscrit dans la continuité du travail d'un précédent stagiaire et vise à préparer la transition vers le futur logiciel développé par la SIG de Brest Métropole, qui remplacera ArcGIS Pro.</p>
+            <div class="feature-list">
+              <div class="feature-item"><div class="feature-dot"></div><span>Afficher les premières et dernières lignes du fichier d'arrêtés</span></div>
+              <div class="feature-item"><div class="feature-dot"></div><span>Rechercher un arrêté par numéro NOARR</span></div>
+              <div class="feature-item"><div class="feature-dot"></div><span>Remplacer une valeur dans une ligne existante</span></div>
+              <div class="feature-item"><div class="feature-dot"></div><span>Créer un nouvel arrêté dans la base</span></div>
+              <div class="feature-item"><div class="feature-dot"></div><span>Supprimer une ligne par NOARR</span></div>
+            </div>
+            <p>Le script interagit avec un fichier <strong>.xlsx</strong> (pour les tests) et est conçu pour être facilement adapté à une base SQLite ou à la future base de données de la SIG.</p>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-title">gestion_arretes.py — Menu principal</span>
+            <span class="code-lang">Python</span>
+          </div>
+          <pre><span class="cm"># Menu interactif de gestion des arrêtés de voirie</span>
+<span class="kw">def</span> <span class="fn">afficher_menu</span>():
+    <span class="fn">print</span>(<span class="st">"""
+Menu :
+  1. Afficher les premières et dernières lignes du fichier
+  2. Rechercher une ligne par numéro NOARR
+  3. Remplacer une valeur dans une ligne (par NOARR)
+  4. Créer un nouvel arrêté
+  5. Supprimer une ligne (par NOARR)
+  0. Quitter
+    """</span>)
+
+<span class="kw">while</span> <span class="kw">True</span>:
+    <span class="fn">afficher_menu</span>()
+    choix = <span class="fn">input</span>(<span class="st">"Votre choix : "</span>).strip()
+
+    <span class="kw">if</span>   choix == <span class="st">"1"</span>: <span class="fn">afficher_contenu</span>(df)
+    <span class="kw">elif</span> choix == <span class="st">"2"</span>: <span class="fn">rechercher_arrete</span>(df)
+    <span class="kw">elif</span> choix == <span class="st">"3"</span>: df = <span class="fn">modifier_valeur</span>(df, fichier)
+    <span class="kw">elif</span> choix == <span class="st">"4"</span>: df = <span class="fn">creer_arrete</span>(df, fichier)
+    <span class="kw">elif</span> choix == <span class="st">"5"</span>: df = <span class="fn">supprimer_arrete</span>(df, fichier)
+    <span class="kw">elif</span> choix == <span class="st">"0"</span>: <span class="kw">break</span>
+    <span class="kw">else</span>: <span class="fn">print</span>(<span class="st">"Option invalide."</span>)</pre>
+        </div>
+      </div>
+
+      <!-- TAB 3 : BASE DE DONNÉES -->
+      <div class="tab-content" id="tab-bdd">
+        <div class="project-detail">
+          <div class="project-detail-header">
+            <div class="project-detail-icon">🗄️</div>
+            <div class="project-detail-title">Base de données SQLite de test</div>
+            <div class="project-detail-badge">SQLite · SQL</div>
+          </div>
+          <div class="project-detail-body">
+            <p>Création d'une base de données <strong>SQLite</strong> pour tester le fonctionnement du script Python et du site web sans interagir avec les vraies données de Brest Métropole. SQLite est léger, sans serveur dédié, et stocke tout dans un seul fichier — idéal pour un environnement de développement et de test.</p>
+            <p>La base contient <strong>deux tables</strong> correspondant aux besoins du service :</p>
+            <div class="feature-list">
+              <div class="feature-item"><div class="feature-dot"></div><span><strong style="color:var(--text)">Table arrete</strong> — OBJECTID, NOARR, ETAT, NMFIC, IDRUE, TITRE, DT_SIGN</span></div>
+              <div class="feature-item"><div class="feature-dot"></div><span><strong style="color:var(--text)">Table users</strong> — USERID, NAME, SURNAME, ROLE (Admin / Moderator / User)</span></div>
+            </div>
+            <p>Cette base est reliée au site internet et sert de support de test pour le script Python. Elle simule la structure de la vraie base de données de Brest Métropole, permettant de valider les fonctionnalités avant déploiement.</p>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-title">init_db.py — Création de la base SQLite</span>
+            <span class="code-lang">Python · SQL</span>
+          </div>
+          <pre><span class="kw">import</span> sqlite3
+
+conn = sqlite3.<span class="fn">connect</span>(<span class="st">"db.sqlite"</span>)
+cursor = conn.cursor()
+
+<span class="cm"># Table des arrêtés de voirie</span>
+cursor.<span class="fn">execute</span>(<span class="st">"""
+CREATE TABLE IF NOT EXISTS arrete (
+    OBJECTID INTEGER PRIMARY KEY,
+    NOARR    TEXT,
+    ETAT     TEXT,
+    NMFIC    TEXT,
+    IDRUE    INTEGER,
+    TITRE    TEXT,
+    DT_SIGN  DATE
+)"""</span>)
+
+<span class="cm"># Table des utilisateurs avec rôles</span>
+cursor.<span class="fn">execute</span>(<span class="st">"""
+CREATE TABLE IF NOT EXISTS users (
+    USERID   INTEGER PRIMARY KEY,
+    NAME     TEXT,
+    SURNAME  TEXT,
+    ROLE     TEXT  -- ADMIN / MODERATOR / USER
+)"""</span>)
+
+conn.<span class="fn">commit</span>()
+conn.<span class="fn">close</span>()</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 MISSION PRINCIPALE -->
+  <div class="section" id="mission">
+    <div class="section-label">03 — Mission principale</div>
+    <h2>Mise à jour cartographique des arrêtés</h2>
+    <p>La mission quotidienne consistait à intégrer les nouveaux arrêtés dans la base de données cartographique d'ArcGIS Pro, en respectant un workflow précis en plusieurs étapes.</p>
+    <div class="diff-list">
+      <div class="diff-item">
+        <span class="diff-num">1</span>
+        <div>
+          <div class="diff-title">Recherche de l'arrêté</div>
+          <div class="diff-text">Utilisation du script Python existant pour vérifier si l'arrêté est déjà présent dans la base (état projet ou vigueur) ou s'il doit être créé.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <span class="diff-num">2</span>
+        <div>
+          <div class="diff-title">Placement des points, lignes et surfaces</div>
+          <div class="diff-text">Dans ArcGIS Pro, placement des balises cartographiques correspondant au type d'arrêté (stationnement interdit, zone 30, place PMR, arceaux vélo, sens unique…) sur la carte du territoire.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <span class="diff-num">3</span>
+        <div>
+          <div class="diff-title">Association au numéro d'arrêté</div>
+          <div class="diff-text">Affectation des balises au numéro NOARR de l'arrêté et renseignement du chemin PDF dans la colonne LIBRU pour assurer la traçabilité documentaire.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <span class="diff-num">4</span>
+        <div>
+          <div class="diff-title">Transfert projet → vigueur</div>
+          <div class="diff-text">Une fois les modifications validées, transfert de l'arrêté de la base "projet" vers la base "vigueur" — celle qui apparaît sur SIGEO pour tous les agents du service.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 COMPÉTENCES -->
+  <div class="section" id="competences">
+    <div class="section-label">04 — Compétences acquises</div>
+    <h2>Prise en main des outils</h2>
+    <div class="bilan-grid">
+      <div class="bilan-card">
+        <div class="bilan-icon">🗺️</div>
+        <div class="bilan-title">SIG & Cartographie</div>
+        <div class="bilan-desc">Prise en main d'ArcGIS Pro et de SIGEO. Manipulation de couches cartographiques, géolocalisation précise d'arrêtés sur le territoire brestois.</div>
+      </div>
+      <div class="bilan-card">
+        <div class="bilan-icon">🐍</div>
+        <div class="bilan-title">Python & SQLite</div>
+        <div class="bilan-desc">Développement d'un script Python interactif avec gestion de fichiers Excel (.xlsx) et création d'une base SQLite pour les tests.</div>
+      </div>
+      <div class="bilan-card">
+        <div class="bilan-icon">🌐</div>
+        <div class="bilan-title">HTML / CSS / JS</div>
+        <div class="bilan-desc">Création d'un site web complet connecté à une base de données, avec interface de recherche, affichage tabulaire et gestion des rôles utilisateurs.</div>
+      </div>
+      <div class="bilan-card">
+        <div class="bilan-icon">🗃️</div>
+        <div class="bilan-title">SQL & Bases de données</div>
+        <div class="bilan-desc">Conception de tables SQLite, requêtes CRUD (SELECT, INSERT, UPDATE, DELETE) pour la gestion des arrêtés et des utilisateurs.</div>
+      </div>
+      <div class="bilan-card">
+        <div class="bilan-icon">📋</div>
+        <div class="bilan-title">Rigueur & Organisation</div>
+        <div class="bilan-desc">Lecture et interprétation d'arrêtés administratifs complexes. Gestion méthodique des mises à jour pour garantir la fiabilité des données géographiques.</div>
+      </div>
+      <div class="bilan-card">
+        <div class="bilan-icon">🏢</div>
+        <div class="bilan-title">Environnement professionnel</div>
+        <div class="bilan-desc">Compréhension du fonctionnement d'un service public, communication avec une équipe, autonomie dans la gestion des projets confiés.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 DIFFICULTÉS -->
+  <div class="section" id="difficultes">
+    <div class="section-label">05 — Difficultés & solutions</div>
+    <h2>Obstacles rencontrés</h2>
+    <div class="diff-list">
+      <div class="diff-item">
+        <span class="diff-num" style="color:var(--neon3)">!</span>
+        <div>
+          <div class="diff-title">Lecture des arrêtés administratifs</div>
+          <div class="diff-text">Certains arrêtés étaient rédigés dans un langage juridique complexe et difficiles à interpréter sans contexte.</div>
+          <div class="diff-solution">✓ Analyse détaillée et demande de précisions auprès des agents expérimentés du service.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <span class="diff-num" style="color:var(--neon3)">!</span>
+        <div>
+          <div class="diff-title">Localisation précise sur la carte</div>
+          <div class="diff-text">Identifier l'emplacement exact d'un arrêté sur ArcGIS Pro nécessitait une bonne connaissance des rues et des outils SIG.</div>
+          <div class="diff-solution">✓ Utilisation combinée d'ArcGIS Pro, de SIGEO (couche cadastre) et entraînement progressif jusqu'à une utilisation fluide.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <span class="diff-num" style="color:var(--neon3)">!</span>
+        <div>
+          <div class="diff-title">Prise en main d'ArcGIS Pro</div>
+          <div class="diff-text">Logiciel riche en fonctionnalités mais complexe au départ, avec de nombreuses couches, outils et interactions à maîtriser.</div>
+          <div class="diff-solution">✓ Consultation de la documentation officielle, observation des agents et pratique régulière.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 BILAN -->
+  <div class="section" id="bilan">
+    <div class="section-label">06 — Bilan</div>
+    <h2>Ce que ce stage m'a apporté</h2>
+    <p>Ce stage au sein de Brest Métropole a été une <strong>expérience formatrice et concrète</strong>. J'ai pu découvrir le fonctionnement d'un service public de proximité et mettre en pratique directement les compétences acquises en BTS CIEL IR : Python, HTML/CSS/JS, SQL et bases de données.</p>
+    <p>Les trois outils que j'ai développés répondaient à de vrais besoins du service — faciliter la consultation des arrêtés, préparer la transition vers un futur logiciel interne, et tester les interactions avec une base de données. Ce n'était pas des exercices scolaires mais des <strong>projets utiles en contexte professionnel réel</strong>.</p>
+    <p>Au-delà du technique, ce stage m'a aidé à gagner en <strong>autonomie</strong>, à collaborer avec une équipe professionnelle et à comprendre les enjeux d'une collectivité territoriale. Il a également débouché sur un contrat CDD d'une semaine en juillet 2025, ce qui a confirmé la qualité du travail fourni.</p>
+  </div>
+
+</main>
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar">
+
+  <div class="sidebar-card">
+    <div class="sidebar-title">Navigation</div>
+    <ul class="nav-anchors">
+      <li><a href="#entreprise">Structure d'accueil</a></li>
+      <li><a href="#projets">Projets réalisés</a></li>
+      <li><a href="#mission">Mission principale</a></li>
+      <li><a href="#competences">Compétences acquises</a></li>
+      <li><a href="#difficultes">Difficultés</a></li>
+      <li><a href="#bilan">Bilan</a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar-card">
+    <div class="sidebar-title">Technologies utilisées</div>
+    <div class="tag-cloud">
+      <span class="tag">Python</span>
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">JavaScript</span>
+      <span class="tag">SQLite</span>
+      <span class="tag">SQL</span>
+      <span class="tag">ArcGIS Pro</span>
+      <span class="tag">SIGEO</span>
+      <span class="tag">openpyxl</span>
+      <span class="tag">SIG</span>
+    </div>
+  </div>
+
+</aside>
+</div>
+
+<footer>
+  <span>© 2025 <a href="../Page_Présentation/Acceuil.html">Nolan Ribette</a> — Stage Brest Métropole</span>
+  <a href="../Page_Présentation/Acceuil.html#projets">← Retour à l'accueil</a>
+</footer>
+
+<script src="Stage.js"></script>
+</body>
+</html>
