@@ -76,5 +76,5 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = btn.getAttribute('href');
       }
     });
-
+  });
 });
