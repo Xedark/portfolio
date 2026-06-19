@@ -1,42 +1,50 @@
-﻿function goBackOrFallback(url) {
-  if (window.history.length > 1) {
-    window.history.back();
-  } else {
-    window.location.href = url;
-  }
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.nav-back').forEach(function (button) {
-    button.addEventListener('click', function (event) {
-      event.preventDefault();
-      goBackOrFallback('portfolio-nolan.html#projets');
-    });
-  });
-
-  var progressBars = document.querySelectorAll('.prog-fill');
-  progressBars.forEach(function (bar) {
-    var target = Number(bar.dataset.w) || 0;
-    bar.style.width = target + '%';
-  });
-
-  var anchors = document.querySelectorAll('.nav-anchors a');
-  var sections = document.querySelectorAll('.section[id]');
-  window.addEventListener('scroll', function () {
-    var current = '';
-    sections.forEach(function (section) {
-      if (window.scrollY >= section.offsetTop - 150) {
-        current = section.id;
-      }
-    });
-    anchors.forEach(function (anchor) {
-      anchor.classList.toggle('active', anchor.getAttribute('href') === '#' + current);
-    });
-  });
-
+/* ── REVEAL ON SCROLL ── */
+function revealSections() {
   document.querySelectorAll('.section').forEach(function (section) {
-    if (section.getBoundingClientRect().top < window.innerHeight * 0.95) {
+    var rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.92) {
       section.classList.add('visible');
     }
+  });
+}
+
+/* Déclenche au chargement initial ET au scroll */
+document.addEventListener('DOMContentLoaded', revealSections);
+window.addEventListener('scroll', revealSections, { passive: true });
+
+/* ── BARRES DE PROGRESSION ── */
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.prog-fill').forEach(function (bar) {
+    bar.style.width = (Number(bar.dataset.w) || 0) + '%';
+  });
+});
+
+/* ── NAV ACTIVE AU SCROLL ── */
+(function () {
+  var anchors  = document.querySelectorAll('.nav-anchors a');
+  var sections = document.querySelectorAll('.section[id]');
+
+  window.addEventListener('scroll', function () {
+    var current = '';
+    sections.forEach(function (s) {
+      if (window.scrollY >= s.offsetTop - 150) current = s.id;
+    });
+    anchors.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }, { passive: true });
+})();
+
+/* ── BOUTON RETOUR ── */
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.nav-back').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = btn.getAttribute('href');
+      }
+    });
   });
 });
